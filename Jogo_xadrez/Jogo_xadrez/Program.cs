@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Jogo_xadrez.tabuleiro;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,6 +11,10 @@ namespace Jogo_xadrez
     {
         static void Main(string[] args)
         {
+            Posicao p;
+
+            p = new Posicao(3, 4);
+            Console.Write(p);
         }
     }
 }
