@@ -20,6 +20,7 @@ namespace Sistema_Pedidos
             
             produtos.Sort(); //Serve para ordenar os elementos na lista, exige a implementação do "IComparable" e o metodo "CompareTo"
 
+            //Menu
             while (opcao != 5)
             {
                 Console.Clear();
