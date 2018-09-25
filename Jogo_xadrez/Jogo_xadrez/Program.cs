@@ -11,10 +11,12 @@ namespace Jogo_xadrez
     {
         static void Main(string[] args)
         {
-            Posicao p;
+            Tabuleiro t;
 
-            p = new Posicao(3, 4);
-            Console.Write(p);
+            t = new Tabuleiro(10,2);
+            Tela.imprimirTabuleiro(t);
+
+            Console.ReadLine();
         }
     }
 }
