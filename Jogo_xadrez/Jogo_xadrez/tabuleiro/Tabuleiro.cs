@@ -25,5 +25,11 @@ namespace Jogo_xadrez.tabuleiro
         {
             return pecas[linhas, colunas];
         }
+
+        public void colocarPeca(Peca p, Posicao posicao)
+        {
+            pecas[posicao.linha, posicao.coluna] = p; //Coloca a peça "p" na posicao setada
+            p.posicao = posicao;
+        }
     }
 }
