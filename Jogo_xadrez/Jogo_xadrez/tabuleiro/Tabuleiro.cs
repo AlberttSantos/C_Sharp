@@ -40,6 +40,19 @@ namespace Jogo_xadrez.tabuleiro
                 pecas[posicao.linha, posicao.coluna] = p; //Coloca a peça "p" na posicao setada
                 p.posicao = posicao;            
         }
+
+        public Peca retirarPeca(Posicao posicao)
+        {
+            if (peca(posicao) == null)
+            {
+                return null;
+            }
+            peca(posicao).posicao = null; //Marca a posição do tabuleiro como nulo
+            pecas[posicao.linha, posicao.coluna] = null; //Marca a posicção da peca como nulo
+            return peca(posicao);
+
+        }
+
         //Testa se a posição da peça "cabe no tabuleiro"
         public bool posicaoValida(Posicao posicao)
         {
@@ -60,7 +73,7 @@ namespace Jogo_xadrez.tabuleiro
         public bool existePeca(Posicao posicao)
         {
             validarPosicao(posicao); //Testa se a posicao é valida
-            return peca(posicao) != null; // Verifica se o metodo que define a posição da peça, esta nulo (Se tiver alguma peça retorna a mesma)
+            return peca(posicao) != null; // Verifica se o metodo que define a posição da peça esta nulo (Se tiver alguma peça retorna a mesma)
         }
 
     }

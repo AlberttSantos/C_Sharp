@@ -38,10 +38,10 @@ namespace Jogo_xadrez
             }
             else
             {
-                ConsoleColor aux = Console.ForegroundColor;
-                Console.ForegroundColor = ConsoleColor.Yellow;
+                ConsoleColor aux = Console.ForegroundColor; //Pega a cor atual do sistema
+                Console.ForegroundColor = ConsoleColor.Yellow; //Define uma nova cor para a cor do sistema
                 Console.Write(peca);
-                Console.ForegroundColor = aux;
+                Console.ForegroundColor = aux; //Volta a cor original do sistema
             }
         }
     }
