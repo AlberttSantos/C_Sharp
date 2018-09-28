@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace Jogo_xadrez.tabuleiro
 {
-    class Peca
+    abstract class Peca
     {
         public Posicao posicao { get; set; }
         public Cor cor { get; protected set; }
         public int qtdMovimento { get; protected set; }
         public Tabuleiro tabuleiro { get; protected set; }
 
-        public Peca(Cor cor, Tabuleiro tabuleiro)
+        public Peca(Tabuleiro tabuleiro, Cor cor)
         {
             this.posicao = null;
             this.cor = cor;
@@ -25,6 +25,9 @@ namespace Jogo_xadrez.tabuleiro
         {
             qtdMovimento++;
         }
+
+        public abstract bool[,] movimentosPosiveis();           
+        
 
     }
 }

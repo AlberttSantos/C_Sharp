@@ -16,7 +16,18 @@ namespace Jogo_xadrez
             try
             {
                 PartidadeXadrez px = new PartidadeXadrez();
-                Tela.imprimirTabuleiro(px.tabuleiro);                
+                while (!px.terminada)
+                {
+                    Console.Clear();
+                    Tela.imprimirTabuleiro(px.tabuleiro);
+
+                    Console.Write("Origem: ");
+                    Posicao origem = Tela.lerPosicaoXadrez().toPosicao();
+                    Console.Write("Destino: ");
+                    Posicao destino = Tela.lerPosicaoXadrez().toPosicao();
+
+                    px.executarMovimento(origem, destino);
+                }
             }
             catch (TabuleiroExcepition e)
             {

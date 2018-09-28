@@ -47,9 +47,11 @@ namespace Jogo_xadrez.tabuleiro
             {
                 return null;
             }
-            peca(posicao).posicao = null; //Marca a posição do tabuleiro como nulo
+            Peca aux = peca(posicao); //Salva o conteudo da posição atual em uma variavel auxiliar
+            aux.posicao = null; //Marca a posição do tabuleiro como nulo
             pecas[posicao.linha, posicao.coluna] = null; //Marca a posicção da peca como nulo
-            return peca(posicao);
+            return aux;
+           
 
         }
 

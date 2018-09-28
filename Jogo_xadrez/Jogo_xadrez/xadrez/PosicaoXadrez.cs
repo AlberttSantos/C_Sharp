@@ -12,7 +12,7 @@ namespace Jogo_xadrez.xadrez
         public int linha { get; set; }
         public char coluna { get; set; }
 
-        public PosicaoXadrez(int linha, char coluna) {
+        public PosicaoXadrez(char coluna, int linha) {
             this.linha = linha;
             this.coluna = coluna;
         }
