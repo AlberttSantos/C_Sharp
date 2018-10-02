@@ -10,6 +10,7 @@ namespace Arquivos
             string sourcePath = @"c:\temp\file1.txt"; //Caminho onde esta o arquivo
             string targetPath = @"c:\temp\file2.txt";
             string path = @"c:\temp";
+            string path2 = @"c:\temp\teste.txt";
 
             FileStream fs = null;
             StreamReader sr = null;            
@@ -48,7 +49,31 @@ namespace Arquivos
                 //}
 
                 //************** Directory and DirectoryInfo ****************
-                Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories);
+                ////Lista folders
+                //var folders = Directory.EnumerateDirectories(path, "*.*", SearchOption.AllDirectories); //Lista todas as subpastas da pasta raiz
+                //Console.WriteLine("Folders: ");
+                //foreach(string s in folders)
+                //{
+                //    Console.WriteLine(s);
+                //}
+
+                ////Lista files 
+                //var files = Directory.EnumerateFiles(path, "*.*", SearchOption.AllDirectories); //Lista todas as subpastas da pasta raiz
+                //Console.WriteLine("Files: ");
+                //foreach (string s in files)
+                //{
+                //    Console.WriteLine(s);
+                //}
+
+                ////Criar folder
+                //Directory.CreateDirectory(path + "\\Teste\\teste2");
+
+                //************** Path ****************
+                Console.WriteLine("DirectorySeparetorChar: " + Path.DirectorySeparatorChar); //Mostra o caracter de sepração
+                Console.WriteLine("GetDirectoryName: " +Path.GetDirectoryName(path2)); //Mostra o caminho dos diretorios
+                Console.WriteLine("GetFileName: "+Path.GetFileName(path2));
+                Console.WriteLine("GetExtension: " + Path.GetExtension(path2));
+                Console.WriteLine("GetFullPath: " + Path.GetFullPath(path2));
 
             }
             catch (IOException e)
