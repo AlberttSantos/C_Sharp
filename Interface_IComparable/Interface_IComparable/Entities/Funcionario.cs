@@ -32,8 +32,6 @@ namespace Interface_IComparable.Entities
             Funcionario outro = obj as Funcionario;
             //return -Salary.CompareTo(outro.Salary); //Ordem decrescente
             return Salary.CompareTo(outro.Salary); //Ordem crescente
-
-
         }
     }
 }
