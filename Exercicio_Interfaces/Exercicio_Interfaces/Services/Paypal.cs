@@ -9,9 +9,9 @@ namespace Exercicio_Interfaces.Services
     class Paypal : ITaxaServico
     {
         //Calcula juros por parcela de 1%
-        public double JurosSimples(double parcela)
+        public double JurosSimples(double montante, int meses)
         {
-            return parcela * 0.01;
+            return montante * 0.01 * meses;
         }
 
         //Calcula taxa de 2%

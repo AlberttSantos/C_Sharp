@@ -8,7 +8,7 @@ namespace Exercicio_Interfaces.Services
 {
     interface ITaxaServico
     {
-        double JurosSimples(double montante);
+        double JurosSimples(double montante, int meses);
         double Taxa(double montante);
     }
 }

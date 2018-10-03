@@ -9,9 +9,26 @@ namespace Exercicio_Interfaces.Services
 {
     class ServicoPagamento
     {
-        public void GerarParcelas(Contract contract)
+        ITaxaServico _taxaServico;
+
+        public ServicoPagamento(ITaxaServico taxaServico)
         {
-            double valorParcela = contract.ValorTotal / contract.installment.Parcelas;
+            _taxaServico = taxaServico;
+        }
+
+        public void GerarParcelas(Contract contract, int meses)
+        {
+            double valorParcela = contract.ValorTotal / meses;
+
+            for (int i = 1; i <= meses; i++)
+            {
+                DateTime date = contract.Data.AddMonths(i);
+                double calcJurosSimples = valorParcela + _taxaServico.JurosSimples(valorParcela, i);
+                double calcTaxa = calcJurosSimples + _taxaServico.Taxa(calcJurosSimples);
+                contract.AddInstallment(new Installment(calcTaxa, date));
+            }
+            //carRental.Invoice = new Invoice(basicPayment, tax); //Processando o Invoice
+
         }
     }
 }

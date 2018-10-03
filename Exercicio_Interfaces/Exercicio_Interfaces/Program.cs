@@ -24,9 +24,14 @@ namespace Exercicio_Interfaces
             int parcelas = int.Parse(Console.ReadLine());
 
             Contract contract = new Contract(numeroContrato, dataContrato, valorTotal);
-            ServicoPagamento servicoPagamento = new ServicoPagamento();
-            servicoPagamento.GerarParcelas(contract); //A classe de "servicoPagamento" recebe a Classe "contract" como parametro
+            ServicoPagamento servicoPagamento = new ServicoPagamento(new Paypal());
+            servicoPagamento.GerarParcelas(contract, parcelas); //A classe de "servicoPagamento" recebe a Classe "contract" como parametro
 
+            foreach (Installment s in contract.Installment)
+            {
+                Console.WriteLine("Parcelas: ");
+                Console.WriteLine(s);
+            }
             
 
         }

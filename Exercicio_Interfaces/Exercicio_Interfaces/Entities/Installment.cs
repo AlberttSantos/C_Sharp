@@ -8,18 +8,18 @@ namespace Exercicio_Interfaces.Entities
 {
     class Installment
     {
-        public int Parcelas { get; private set; }
-        public DateTime vencimento { get; private set; }        
+        public double ValorParcela { get; private set; }
+        public DateTime Vencimento { get; private set; }        
                 
-        public Installment(int parcelas, DateTime vencimento)
+        public Installment(double parcelas, DateTime vencimento)
         {
-            Parcelas = parcelas;
-            this.vencimento = vencimento;
+            ValorParcela = parcelas;
+            this.Vencimento = vencimento;
         }
 
         public override string ToString()
         {
-            return "Parcelas: "+vencimento+" - ";
+            return Vencimento.ToString("dd/MM/yyyy")+" - "+ValorParcela;
         }
     }
 }
