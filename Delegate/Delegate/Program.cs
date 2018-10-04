@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Delegate.Services;
 using Delegate.Entities;
 
 
@@ -63,33 +60,61 @@ namespace Delegate
 
 
             //*********** Delegate Action - Aula 133 ***************
-            List<Product> lista = new List<Product>();
+            //List<Product> lista = new List<Product>();
 
-            lista.Add(new Product("TV", 300.00));
-            lista.Add(new Product("Celular", 100.00));
-            lista.Add(new Product("Mouse", 30.00));
-            lista.Add(new Product("Teclado", 89.90));
+            //lista.Add(new Product("TV", 300.00));
+            //lista.Add(new Product("Celular", 100.00));
+            //lista.Add(new Product("Mouse", 30.00));
+            //lista.Add(new Product("Teclado", 89.90));
 
-            //Exemplo declarando um Action
-            Action<Product> act = p => { p.Preco += p.Preco * 0.1; }; //Utiliza-se as chaves para mostrar que é do tipo "Void"
+            ////Exemplo declarando um Action
+            //Action<Product> act = p => { p.Preco += p.Preco * 0.1; }; //Utiliza-se as chaves para mostrar que é do tipo "Void"
 
-            lista.ForEach(act); //Percorre a lista e executa o "UpdatePrice"
-            foreach (Product p in lista)
+            //lista.ForEach(act); //Percorre a lista e executa o "UpdatePrice"
+            //foreach (Product p in lista)
+            //{
+            //    Console.WriteLine(p);
+            //}
+
+
+
+            //*********** Delegate Func - Aula 134 ***************
+            List<Product> Lista = new List<Product>();
+
+            Lista.Add(new Product("TV", 300.00));
+            Lista.Add(new Product("Celular", 100.00));
+            Lista.Add(new Product("Mouse", 30.00));
+            Lista.Add(new Product("Teclado", 89.90));
+
+            //"<Product, string>" Recebe o produto e retorna uma string
+            Func<Product, string> func = p => p.Nome.ToUpper();  //Declaração do delegate Func utilizando função lambda
+            Func<Product, string> func2 = NameUpper; //Declaração do delegate Func recebendo referencia de metodo
+
+
+            List<string> result = Lista.Select(func).ToList(); //A lista "result" recebe a lista "product" ("Tolist()" converrte para lista)
+
+            foreach (String s in result)
             {
-                Console.WriteLine(p);
+                Console.WriteLine(s);
             }
         }
 
         //Resolução com Predicate
-        public static bool ProductTest(Product p) //Função Predicate (Recebe um obejeto e retorna um boleano)
-        {
-            return p.Preco >= 100;
-        }
+        //public static bool ProductTest(Product p) //Função Predicate (Recebe um obejeto e retorna um boleano)
+        //{
+        //    return p.Preco >= 100;
+        //}
 
         //Resolução Action
         //public static void UpdatePrice(Product p)
         //{
         //    p.Preco += p.Preco * 0.1; // += recebe oq já tinha
         //}
+
+        //Resolução Func
+        public static string NameUpper(Product p)
+        {
+            return p.Nome.ToUpper();
+        }
     }
 }
